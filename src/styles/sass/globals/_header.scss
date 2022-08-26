@@ -1,0 +1,31 @@
+.header {
+  height: 10vh;
+  background-color: $bg-color;
+  @include flex-center();
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 10rem;
+
+  nav {
+    flex-basis: 70%;
+    @include flex-even();
+
+    .link {
+      color: $secondary-color;
+      font-weight: 600;
+
+      #home{
+        background-color: $secondary-color;
+        color: $bg-color;
+        padding: 2px 5px;
+      }
+    }
+
+    span {
+        width: 1.5rem;
+        height: 1px;
+        background-color: $text-color;
+      }
+  }
+}

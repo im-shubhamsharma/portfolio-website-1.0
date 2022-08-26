@@ -1,0 +1,21 @@
+.home {
+  width: 70%;
+  height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+//   border: 1px solid $text-color;
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+  #hey, #work{
+    font-weight: 100;
+    font-size: 2.5rem;
+  }
+
+}

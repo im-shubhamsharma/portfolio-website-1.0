@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: inherit;
+  background-color: #42032c;
+  color: #e6d2aa;
+  font-family: "Montserrat", sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+}
+.link:focus, .link:hover, .link:visited, .link:link, .link:active {
+  text-decoration: none;
+}
+
+.header {
+  height: 10vh;
+  background-color: #42032c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 10rem;
+}
+.header nav {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.header nav .link {
+  color: #e6d2aa;
+  font-weight: 600;
+}
+.header nav .link #home {
+  background-color: #e6d2aa;
+  color: #42032c;
+  padding: 2px 5px;
+}
+.header nav span {
+  width: 1.5rem;
+  height: 1px;
+  background-color: #f1efdc;
+}
+
+.home {
+  width: 70%;
+  height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10%;
+}
+.home h1 {
+  font-size: 3rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.home #hey, .home #work {
+  font-weight: 100;
+  font-size: 2.5rem;
+}
+
+.cover {
+  position: fixed;
+  height: 80vh;
+  width: 100%;
+}
+.cover #name {
+  top: 0;
+  left: 0;
+  margin: 2rem;
+  letter-spacing: 0.5rem;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  text-orientation: "";
+  transform: scale(-1, -1);
+}
+.cover #dev {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 2rem;
+  letter-spacing: 0.3rem;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  text-orientation: "";
+  transform: scale(-1, -1);
+}
+.cover #under-construction {
+  font-size: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 2rem;
+  letter-spacing: 0.3rem;
+}/*# sourceMappingURL=styles.css.map */

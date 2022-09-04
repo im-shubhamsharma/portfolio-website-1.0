@@ -1,127 +1,110 @@
-$dynamic-font-size : 2.5rem;
-$word1-top : 0;
-$word2-top : -3.0rem;
-$word3-top : -6.0rem;
-$word4-top : -9.1rem;
+$dynamic-font-size: 2.5rem;
+$dynamic-responsive-font-size: 1.3rem;
+$word1-top: 0;
+$word2-top: -3rem;
+$word3-top: -6rem;
+$word4-top: -9.1rem;
 
-.home {
-  width: 70%;
-  height: 90vh;
-  margin: 0 auto;
+.dynamic-text {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 10%;
-  margin-top: 10vh;
-  padding-bottom: 15vh;
+  font-size: $dynamic-font-size;
+  position: relative;
+  width: 35rem;
+  overflow: hidden;
 
-  h1 {
-    font-size: 3rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-  #hey,
-  #work {
-    font-weight: 100;
-    font-size: 2.5rem;
-  }
-
-  .dynamic-text {
-    display: flex;
-    font-size: $dynamic-font-size;
-    position: relative;
-    width: inherit;
+  //------------- animation------------------------
+  #dynamic {
+    display: block;
+    font-weight: 600;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 7rem;
+    width: 20rem;
+    animation: openclose 15s ease-in-out infinite;
+  }
 
-    #static {
-      // margin-right: 0.5rem;
+  @keyframes openclose {
+    0% {
+      top: 0;
+      width: 0;
     }
+    10% {
+      top: 0;
+      width: 30rem;
+    }
+    15% {
+      top: 0;
+      width: 50rem;
+    }
+    20% {
+      top: 0;
+      width: 50rem;
+    }
+    25% {
+      top: 0;
+      width: 0;
+    }
+    30% {
+      top: $word2-top;
+      width: 0;
+    }
+    35% {
+      top: $word2-top;
+      width: 15rem;
+    }
+    45% {
+      top: $word2-top;
+      width: 15rem;
+    }
+    50% {
+      top: $word2-top;
+      width: 0;
+    }
+    55% {
+      top: $word3-top;
+      width: 0;
+    }
+    60% {
+      top: $word3-top;
+      display: flex;
+    }
+    70% {
+      top: $word3-top;
+      width: 0;
+    }
+    75% {
+      top: $word4-top;
+      width: 0;
+    }
+    80% {
+      top: $word4-top;
+      width: 15rem;
+    }
+    90% {
+      top: $word4-top;
+      width: 15rem;
+    }
+    95% {
+      top: $word4-top;
+      width: 0;
+    }
+    100% {
+      top: 0;
+      width: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .dynamic-text {
+    font-size: $dynamic-responsive-font-size;
 
     //------------- animation------------------------
     #dynamic {
-      display: block;
-      font-weight: 600;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      left: 7rem;
-      width: 20rem;
-      animation: openclose 20s ease-in-out infinite;
-    }
-
-    @keyframes openclose {
-      0% {
-        top: 0;
-        width: 0;
-      }
-      10% {
-        top: 0;
-        width: 30rem;
-      }
-      15% {
-        top: 0;
-        width: 50rem;
-      }
-      20% {
-        top: 0;
-        width: 50rem;
-      }
-      25% {
-        top: 0;
-        width: 0;
-      }
-      30% {
-        top: $word2-top;
-        width: 0;
-      }
-      35% {
-        top: $word2-top;
-        width: 15rem;
-      }
-      45% {
-        top: $word2-top;
-        width: 15rem;
-      }
-      50% {
-        top: $word2-top;
-        width: 0;
-      }
-      55% {
-        top: $word3-top;
-        width: 0;
-      }
-      60% {
-        top: $word3-top;
-        width: 15rem;
-      }
-      65% {
-        top: $word3-top;
-        width: 15rem;
-      }
-      70% {
-        top: $word3-top;
-        width: 0;
-      }
-      75% {
-        top: $word4-top;
-        width: 0;
-      }
-      80% {
-        top: $word4-top;
-        width: 15rem;
-      }
-      90% {
-        top: $word4-top;
-        width: 15rem;
-      }
-      95% {
-        top: $word4-top;
-        width: 0;
-      }
-      100% {
-        top: 0;
-        width: 0;
-      }
+      left: 3.5rem;
+      width: 20rem;  
+      font-weight: 400;
     }
   }
 }

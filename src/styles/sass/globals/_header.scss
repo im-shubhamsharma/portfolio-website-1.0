@@ -1,25 +1,21 @@
 .header {
-  height: 10vh;
+  height: 7vh;
   background-color: $bg-color;
   @include flex-center();
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 10rem;
+  padding: 0.5rem 10rem;
+  z-index: 100;
 
   nav {
     flex-basis: 70%;
     @include flex-even();
 
     .link {
-      color: $secondary-color;
+      color: $text-primary-color;
       font-weight: 600;
-
-      #home{
-        background-color: $secondary-color;
-        color: $bg-color;
-        padding: 2px 5px;
-      }
+      font-size: 1.3rem;
     }
   }
 }

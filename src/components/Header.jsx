@@ -1,12 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { Link, NavLink } from "react-router-dom";
 import { Home } from "@mui/icons-material";
 import { Button } from "@mui/material";
+import { gsap } from "gsap";
+import {
+  StyledHeader,
+  StyledNav,
+  StyledLogo,
+  StyledNavLink,
+} from "./styles/Header.styled.js";
 
 function Header(props) {
   const [theme, setTheme] = useState("light");
+
+  const headerRef = useRef();
+
+  useEffect(() => {
+    gsap.to(headerRef.current, {
+      duration: 1,
+      y: 0,
+      ease: "power3.inOut",
+      delay: 0.3,
+    });
+  }, []);
 
   const navItems = [
     {
@@ -28,33 +46,31 @@ function Header(props) {
   ];
 
   return (
-    <div className="header">
-      <nav>
-        <NavLink className="link" to="/about">
-          About
-        </NavLink>
-        <span></span>
+    <>
+      <StyledHeader ref={headerRef}>
+        <StyledLogo>{`<SS>`}</StyledLogo>
+        <StyledNav>
+          <StyledNavLink className="link" to="/">
+            <span id="home"> Home </span>
+          </StyledNavLink>
+          <StyledNavLink className="link" to="/about">
+            About
+          </StyledNavLink>
 
-        <NavLink className="link" to="/skills">
-          Skills
-        </NavLink>
-        <span></span>
+          <StyledNavLink className="link" to="/skills">
+            Skills
+          </StyledNavLink>
 
-        <NavLink className="link" to="/">
-          <span id="home"> Home </span>
-        </NavLink>
-        <span></span>
+          <StyledNavLink className="link" to="/projects">
+            Projects
+          </StyledNavLink>
 
-        <NavLink className="link" to="/projects">
-          Projects
-        </NavLink>
-        <span></span>
-
-        <NavLink className="link" to="/Contact">
-          Contact
-        </NavLink>
-      </nav>
-    </div>
+          <StyledNavLink className="link" to="/Contact">
+            Contact
+          </StyledNavLink>
+        </StyledNav>
+      </StyledHeader>
+    </>
   );
 }
 

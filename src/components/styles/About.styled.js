@@ -1,61 +1,63 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  height: 93vh;
-  /* border: 2px solid; */
-  width: 80%;
-  margin: auto;
+export const AboutContainer = styled.div`
+  scroll-snap-align: start;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 
-  @media only screen and (max-width: 500px) {
-    width: 90%;
-    margin: auto;
-    flex-direction: column;
-    justify-content: space-around;
-  }
+  
 `;
 
 export const SubContainer1 = styled.div`
-  width: 50%;
-  padding-left: 4rem;
-  /* border: 1px solid rgb(245, 101, 57); */
+  width: 60%;
+  margin: auto;
+  border : 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 10rem;
+  overflow: hidden;
 
   @media only screen and (max-width: 500px) {
+    height: 90vh;
     width: 100%;
-    padding-left: 2rem;
+    margin-top: 5rem;
   }
 `;
 
-export const SubContainer2 = styled.div`
-  width: 48%;
-
-  img {
-    width: 100%;
-  }
-
-  @media only screen and (max-width: 500px) {
-    img {
-      width: 300px;
-      transform: translateX(-15%);
-    }
-  }
-`;
-
-export const Title = styled.div`
-  font-size: 5rem;
-  color: rgb(245, 101, 57);
+export const StyledTitle = styled.h1`
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  position: relative;
 
   @media only screen and (max-width: 500px) {
     font-size: 2rem;
   }
 `;
 
-export const Para = styled.div`
-  font-size: 1.5rem;
-  line-height: 150%;
+export const SubTitle = styled.h3`
+  margin-right: auto;
+
+`;
+
+export const StyledPara = styled.p`
+  font-size: 2rem;
+  margin-bottom: 5rem;
 
   @media only screen and (max-width: 500px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+export const StyledList = styled.ul`
+  font-size: 2rem;
+  margin-top: 2rem;
+
+  @media only screen and (max-width: 500px) {
+    font-size: 1.5rem;
   }
 `;

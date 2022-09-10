@@ -1,128 +1,192 @@
-import styled, {keyframes} from "styled-components";
-
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
-  height: 93vh;
-  /* border: 2px solid; */
-  width: 80%;
+  position: absolute;
+  top:0;
+  height: 100vh;
+  width: 100%;
   margin: auto;
-  margin-top: 7vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  overflow: none;
+  z-index: 1;
+  scroll-snap-align: start;
 
   @media only screen and (max-width: 500px) {
-    height: 100vh;
-    width: 88%;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 2rem;
+    height: 90vh;
+    width: 100%;
   }
+`;
+
+const bounce = keyframes`
+   0%{
+      transform: translateY(0);
+   }
+   25%{
+      transform: translateY(-30px);
+   }
+   50%{
+      transform: translateY(-30px);
+   }
+   1000%{
+      transform: translateY(0);
+   }
+`;
+
+const bounce2 = keyframes`
+   0%{
+      transform: translateY(0);
+      
+   }
+   25%{
+      transform: translateY(-15px);
+   
+   }
+   50%{
+      transform: translateY(-15px);
+   
+   }
+   1000%{
+      transform: translateY(0);
+    
+   }
 `;
 
 export const SubContainer1 = styled.div`
-  width: 50%;
-  padding: 1rem;
-  padding-left: 4rem;
-  transform: translateX(100%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20rem;
+  font-size: 5rem;
 
-  @media only screen and (max-width: 500px) {
-    position: relative;
-    top: -400px;
-    left: 20px;
+  .arrow {
     width: 100%;
-    padding-left: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    top: 13rem;
+    left: -10rem;
+    animation: ${bounce} 2s linear infinite;
   }
-`;
-
-export const SubContainer2 = styled.div`
-  width: 50%;
-  padding-right: 4rem;
-  transform: translateX(-100%);
-  opacity: 0;
 
   @media only screen and (max-width: 500px) {
-    position: relative;
-    top: 100px;
+    flex: 1;
     width: 100%;
-    padding: 0;
+    justify-content: end;
+    padding: 2rem 0 2rem 2rem;
+    font-size: 2.2rem;
 
-    img {
-      margin-top: 5rem;
-      width: 360px;
+    .arrow {
+      margin-top: 2rem;
+      font-size: 2rem;
+      top: 0;
+      left: 0.5rem;
+      animation: ${bounce2} 2s linear infinite;
     }
   }
 `;
 
 export const Greetings = styled.div`
-  font-weight: 100;
-  font-size: 2.5rem;
-  color: $text-primary-color;
 
-  @media only screen and (max-width: 500px) {
-    font-size: 1rem;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
+  
 `;
 
 export const MyName = styled.div`
-  font-size: 3rem;
   line-height: 1.5;
   text-transform: uppercase;
 
   @media only screen and (max-width: 500px) {
-    font-size: 1.3rem;
-    line-height: 1.6;
-    text-transform: uppercase;
     margin: 0.5rem 0;
   }
 `;
 
 export const DynamicTextContainer = styled.div`
-  font-size: 2rem;
   line-height: 1.5;
   text-transform: uppercase;
 
   @media only screen and (max-width: 500px) {
-    font-size: 1.1rem;
-    line-height: 1.6;
     text-transform: uppercase;
+    font-size: 1.8rem;
   }
 `;
 
-export const typewriter = keyframes`
+export const fadeIn = keyframes`
      0%{
-       left:0;
+       opacity:0;
      }
      20%{
-       left:100%;
+       opacity:100%;
      }
      40%{
-       left:100%;
+       opacity:100%;
      }
      80%{
-       left:100%;
+       opacity:100%;
      }
      100%{
-       left:0;
+       opacity:0;
      }
 `;
 
 export const StyledSpan = styled.span`
-  position: relative;
-  color: rgb(245, 101, 57);
+  text-transform: uppercase;
+  color: white;
+  overflow: hidden;
+  animation: ${fadeIn} 6s ease-in-out infinite;
+`;
 
-  &:before {
-    content: "";
-    background-color: #232946;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    /* opacity: 0.8; */
-    animation: ${typewriter} 5s ease-in-out infinite;
+
+export const StyledButton2 = styled.button`
+  width: 21rem;
+  height: 3.5rem;
+  font-size: 2.2rem;
+  border: 0;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0.5rem 0;
+  transition: 0.3s linear;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    scale: 1.05;
+    border: 2px solid white;
+    backdrop-filter: blur(0);
+  }
+
+  @media only screen and (max-width: 500px) {
+    width: 13rem;
+    height: 2.5rem;
+    font-size: 1.4rem;
+  }
+`;
+
+export const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  
+  ion-icon {
+    cursor: pointer;
+    transition: 0.3s linear;
+    color: white;
+
+    &:hover {
+      scale: 1.05;
+    }
+
+    @media only screen and (max-width: 500px) {
+      font-size: 3.2rem;
+    }
   }
 `;

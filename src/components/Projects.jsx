@@ -1,29 +1,35 @@
 import React from "react";
+import { ProjectCardContainer } from "./styles/Projects.styled";
+import { projects } from "../utils/constants";
+
 import {
-  ProjectContainer,
+  StyledSection,
+  StyledContainer,
+  StyledTitle,
   SubTitle,
-  Title,
-  SubContainer1,
-  ProjectCardContainer,
-} from "./styles/Projects.styled";
+  StyledPara,
+  StyledButton,
+} from "./styles/Mixin";
+
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
+
+  const projectsElem = projects.map(project => (
+        <ProjectCard key={project.id} project={project}/>
+  ));
+
   return (
-    <ProjectContainer>
-      <SubContainer1>
-        <SubTitle>WORK</SubTitle>
-        <Title>A Selection Of Stuff I've Built</Title>
-      </SubContainer1>
-     <ProjectCardContainer>
-           <ProjectCard />
-           <ProjectCard />
-           <ProjectCard />
-           <ProjectCard />
-           <ProjectCard />
-           <ProjectCard />
-     </ProjectCardContainer>
-    </ProjectContainer>
+    <StyledSection>
+      <StyledContainer>
+        <div>
+          <SubTitle>WORK</SubTitle>
+          <StyledTitle>A Selection Of Stuff I've Built</StyledTitle>
+        </div>
+
+        <ProjectCardContainer>{projectsElem}</ProjectCardContainer>
+      </StyledContainer>
+    </StyledSection>
   );
 };
 

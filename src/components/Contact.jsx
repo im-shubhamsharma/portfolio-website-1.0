@@ -1,37 +1,42 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import {
-  ContactContainer,
-  SubContainer1,
-  Title,
-  SubTitle,
   StyledForm,
   StyledInput,
   StyledTextArea,
-  StyledButton,
 } from "./styles/Contact.styled";
 
-const Contact = () => {
+import {
+  StyledSection,
+  StyledContainer,
+  StyledTitle,
+  SubTitle,
+  StyledPara,
+  StyledButton,
+} from "./styles/Mixin";
 
+const Contact = () => {
   const [message, setMessage] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleChange = (e) => {
-       const {name, value} = e.target;
+    const { name, value } = e.target;
 
-       setMessage(prevMessage => ({
-        ...prevMessage,   
-        [name] : value
-       }))
-  }
+    setMessage((prevMessage) => ({
+      ...prevMessage,
+      [name]: value,
+    }));
+  };
 
   return (
-    <ContactContainer>
-      <SubContainer1>
-        <SubTitle>CONTACT</SubTitle>
-        <Title>Get In Touch</Title>
+    <StyledSection>
+      <StyledContainer>
+        <div>
+          <SubTitle>CONTACT</SubTitle>
+          <StyledTitle>Get In Touch</StyledTitle>
+        </div>
         <StyledForm>
           <StyledInput
             type="text"
@@ -54,13 +59,13 @@ const Contact = () => {
             onChange={handleChange}
             rows={10}
           />
-          <StyledButton>
+          <StyledButton size={"md"}>
             SEND <ion-icon name="send-outline"></ion-icon>
           </StyledButton>
         </StyledForm>
-      </SubContainer1>
-    </ContactContainer>
+      </StyledContainer>
+    </StyledSection>
   );
-}
+};
 
-export default Contact
+export default Contact;

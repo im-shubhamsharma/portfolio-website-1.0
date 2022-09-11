@@ -9,11 +9,14 @@ import Contact from "./components/Contact";
 const theme = {
   colors: {
     background: "#222426",
-    primary: "rgb(211,115,108)",
-    secondary: "#fff",
-    textPrimary: "#ff73ce",
-    textSecondary: "rgb(255, 255, 255)",
-    textMain: "rgb(0, 238, 255)",
+    primary: "#f51720",
+    secondary: "",
+    textPrimary: "rgb(255, 255, 255)",
+    textSecondary: "#ff73ce",
+  },
+  textGradient: {
+    background:
+      "linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);",
   },
 };
 
@@ -38,3 +41,10 @@ function App() {
 }
 
 export default App;
+
+/*
+#f51720 - red tint
+#2ff3e0 - green tint
+#c7f954 - another green tint
+rgb(255, 115, 206) - pink
+*/

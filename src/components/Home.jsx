@@ -1,58 +1,92 @@
 import React, { useRef, useEffect, useState } from "react";
+import Typewriter from "typewriter-effect";
 import {
   Container,
-  SubContainer1,
+  SubContainer,
   Greetings,
-  MyName,
+  StyledName,
   DynamicTextContainer,
   StyledSpan,
-  StyledButton2,
   IconContainer,
 } from "./styles/Home.styled.js";
+
+import { StyledButton } from "./styles/Mixin";
 import Clouds from "./Clouds";
 import Header from "./Header";
 
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "linear",
+      duration: 1.5,
+      type: "tween",
+      when: 'beforeChidlren'
+    },
+  },
+};
+
 function Home(props) {
-  const [dynamicText, setDynamicText] = useState("Coder");
-
-  const text = [
-    "Frontend Developer",
-    "Designer",
-    "Optimist",
-    "Seeker",
-    "Coder",
-  ];
-
-  useEffect(() => {
-    let i = -1;
-    const textInterval = setInterval(() => {
-      i++;
-      setDynamicText(text[i]);
-      if (i == 4) i = 0;
-    }, 6000);
-
-    return () => clearInterval(textInterval);
-  }, []);
-
-
   return (
     <>
       <Clouds />
       <Container>
-        <SubContainer1>
+        <SubContainer
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <Greetings>Hi, I'm</Greetings>
-          <MyName>Shubham Sharma !</MyName>
+          <StyledName>Shubham Sharma !</StyledName>
+
           <DynamicTextContainer>
-            I'm a <StyledSpan>{dynamicText}</StyledSpan>
+            I'm a&nbsp;
+            <StyledSpan>
+              <Typewriter
+                options={{
+                  strings: [
+                    "Frontend Developer",
+                    "Designer",
+                    "Optimist",
+                    "Seeker",
+                    "Coder",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  delay: 100,
+                }}
+              />
+            </StyledSpan>
           </DynamicTextContainer>
+
           <IconContainer>
             <ion-icon name="logo-linkedin"></ion-icon>
             <ion-icon name="mail-outline"></ion-icon>
             <ion-icon name="logo-github"></ion-icon>
           </IconContainer>
-          <StyledButton2>Resume</StyledButton2>
-          <i className="fa-solid fa-angle-down arrow"></i>
-        </SubContainer1>
+
+          <StyledButton size={"xl"}>Resume</StyledButton>
+
+          <motion.i
+            className="fa-solid fa-angle-down arrow"
+            initial={{ y: -20 }}
+            animate={{ y: 0 }}
+            transition={{
+              repeat: "Infinity",
+              repeatType: "reverse",
+              ease: "linear",
+              duration: 0.5,
+              type: "tween",
+            }}
+          ></motion.i>
+        </SubContainer>
       </Container>
       <Header />
     </>

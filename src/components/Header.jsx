@@ -14,7 +14,7 @@ const Header = () => {
         <li>About</li>
         <li>Projects</li>
         <li>Contact</li>
-        <li>Resume</li>
+        <li style={{ color: "#f51720" }}>Resume</li>
       </StyledNav>
     </StyledHeader>
   );

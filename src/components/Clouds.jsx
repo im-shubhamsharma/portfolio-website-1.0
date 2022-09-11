@@ -1,10 +1,19 @@
 import React from "react";
-import { StyledCover } from "./styles/Clouds.styled";
+import { StyledCover, StyledSun } from "./styles/Clouds.styled";
+import sun from "../assets/sun.png";
 
 function Clouds(props) {
   return (
     <StyledCover>
       <div id="background-wrap">
+        <StyledSun
+         initial={{rotate:-360}}
+         animate={{rotate:360}}
+         transition={{repeat:"Infinity", repeatType:"loop", type:"tween", duration:50}}
+        >
+          <img src={sun} />
+        </StyledSun>
+
         <div class="x1">
           <div class="cloud"></div>
         </div>

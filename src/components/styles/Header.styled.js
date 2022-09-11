@@ -11,7 +11,6 @@ export const StyledHeader = styled.div`
   align-items: center;
   text-align: center;
   padding: 0 2rem;
-  /* background-color: ${({ theme }) => theme.colors.background}; */
 
   @media only screen and (max-width: 500px) {
   }
@@ -19,12 +18,13 @@ export const StyledHeader = styled.div`
 
 export const StyledNav = styled.nav`
   position: relative;
-  width: 60%;
+  width: 100%;
   margin: auto;
   list-style: none;
   display: flex;
   justify-content: flex-end;
   gap: 2rem;
+  padding: 0 5rem;
 
   @media only screen and (max-width: 500px) {
     width: 100%;

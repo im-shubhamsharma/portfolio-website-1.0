@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledCover = styled.div`
   height: 100vh;
@@ -162,6 +163,25 @@ export const StyledCover = styled.div`
     }
     100% {
       margin-left: 120%;
+    }
+  }
+`;
+
+export const StyledSun = styled(motion.div)`
+  position: absolute;
+  right: 12rem;
+  top: 8rem;
+  opacity: 0.9;
+
+  img {
+    width: 130px;
+  }
+  @media only screen and (max-width: 500px) {
+    right:3rem;
+    top:4rem;
+
+    img {
+      width: 80px;
     }
   }
 `;

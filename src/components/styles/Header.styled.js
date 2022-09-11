@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  height: 10vh;
+  height: 5vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
+  padding: 0 2rem;
+  /* background-color: ${({ theme }) => theme.colors.background}; */
 
   @media only screen and (max-width: 500px) {
-    
   }
 `;
 
 export const StyledNav = styled.nav`
+  position: relative;
   width: 60%;
   margin: auto;
   list-style: none;
@@ -33,3 +36,4 @@ export const StyledNav = styled.nav`
 export const SubTitle = styled.h3`
   margin-right: auto;
 `;
+

@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
   position: absolute;
-  top:0;
+  top: 0;
   height: 100vh;
   width: 100%;
   margin: auto;
@@ -11,10 +11,13 @@ export const Container = styled.div`
   overflow: none;
   z-index: 1;
   scroll-snap-align: start;
+  padding: 2rem;
 
   @media only screen and (max-width: 500px) {
-    height: 90vh;
+    height: 100vh;
     width: 100%;
+    padding: 5vh 0;
+    scroll-snap-align: none;
   }
 `;
 
@@ -53,11 +56,11 @@ const bounce2 = keyframes`
 `;
 
 export const SubContainer1 = styled.div`
-  flex: 1;
+  width: 60%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 20rem;
   font-size: 5rem;
 
   .arrow {
@@ -68,7 +71,6 @@ export const SubContainer1 = styled.div`
     align-items: center;
     font-size: 3rem;
     top: 13rem;
-    left: -10rem;
     animation: ${bounce} 2s linear infinite;
   }
 
@@ -80,10 +82,10 @@ export const SubContainer1 = styled.div`
     font-size: 2.2rem;
 
     .arrow {
-      margin-top: 2rem;
+      margin-top: 10rem;
       font-size: 2rem;
       top: 0;
-      left: 0.5rem;
+      left: 0;
       animation: ${bounce2} 2s linear infinite;
     }
   }
@@ -154,7 +156,7 @@ export const StyledButton2 = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   margin: 0.5rem 0;
-  transition: 0.3s linear;
+  transition: all 0.3s linear 0s;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -175,7 +177,8 @@ export const IconContainer = styled.div`
   align-items: center;
   gap: 1.5rem;
   margin: 1rem 0;
-  
+  transition: all 0.3s linear 0s;
+
   ion-icon {
     cursor: pointer;
     transition: 0.3s linear;

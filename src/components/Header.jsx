@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { StyledHeader, StyledNav, SubTitle } from "./styles/Header.styled";
 
 const Header = () => {
+
+  const Header = useRef();
+
+    
   return (
-    <StyledHeader>
+    <StyledHeader ref={Header}>
       <StyledNav>
         <SubTitle> SS </SubTitle>
         <li>Home</li>

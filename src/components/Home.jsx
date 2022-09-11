@@ -1,6 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import cover from "../assets/cover.svg";
-import { gsap, Power3 } from "gsap";
 import {
   Container,
   SubContainer1,
@@ -36,29 +34,12 @@ function Home(props) {
     return () => clearInterval(textInterval);
   }, []);
 
-  const heroImg = useRef();
-  const heroTitle = useRef();
-
-  // useEffect(() => {
-  //   gsap.to(heroImg.current, {
-  //     duration: 1,
-  //     opacity: 1,
-  //     x: 0,
-  //     ease: Power3,
-  //   });
-
-  //   gsap.to(heroTitle.current, {
-  //     duration: 1,
-  //     x: 0,
-  //     ease: Power3,
-  //   });
-  // }, []);
 
   return (
     <>
       <Clouds />
       <Container>
-        <SubContainer1 ref={heroTitle}>
+        <SubContainer1>
           <Greetings>Hi, I'm</Greetings>
           <MyName>Shubham Sharma !</MyName>
           <DynamicTextContainer>

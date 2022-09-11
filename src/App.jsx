@@ -13,6 +13,7 @@ const theme = {
     secondary: "#fff",
     textPrimary: "#ff73ce",
     textSecondary: "rgb(255, 255, 255)",
+    textMain: "rgb(0, 238, 255)",
   },
 };
 

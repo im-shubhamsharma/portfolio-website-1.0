@@ -9,14 +9,13 @@ import {
 import { SubTitle, StyledButton } from "./styles/Mixin";
 
 const ProjectCard = (props) => {
-  const { id, name, desc, livelink, codelink } = props.project;
-  console.log(name);
+  const { id, name, desc, livelink, codelink, tech } = props.project;
 
   return (
     <CardContainer>
       <CardContent>
         <SubTitle>{name}</SubTitle>
-        <StyledDesc>React, Javascript, css</StyledDesc>
+        <StyledDesc>Tech Used: {tech}</StyledDesc>
         <StyledDesc>{desc}</StyledDesc>
       </CardContent>
 

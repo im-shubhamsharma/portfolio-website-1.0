@@ -15,9 +15,11 @@ import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
 
-  const projectsElem = projects.map(project => (
-        <ProjectCard key={project.id} project={project}/>
-  ));
+  const projectsElem = projects.map(project => {
+      if(project.featured){
+       return  <ProjectCard key={project.id} project={project}/>
+      }  
+    });
 
   return (
     <StyledSection>

@@ -1,10 +1,11 @@
+import {useState} from 'react';
 import Home from "./components/Home";
 import About from "./components/About";
 import GlobalStyles from "./components/styles/Global";
 import { ThemeProvider } from "styled-components";
-import styled from "styled-components";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Modal from  "./components/Modal"
 
 const theme = {
   colors: {
@@ -20,22 +21,19 @@ const theme = {
   },
 };
 
-const Wrapper = styled.div`
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
-`;
-
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <ThemeProvider theme= {theme}>
-    <>
-      <GlobalStyles />
-      <Home />
-      <About />
-      <Projects/>
-      <Contact />
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Modal showModal={showModal} setShowModal={setShowModal} />
+        <Home />
+        <About />
+        <Projects />
+        <Contact showModal={showModal} setShowModal={setShowModal} />
+      </>
     </ThemeProvider>
   );
 }

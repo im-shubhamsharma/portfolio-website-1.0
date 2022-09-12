@@ -28,3 +28,9 @@ export const StyledTextArea = styled.textarea`
     scale: 1.02;
   }
 `;
+
+export const StyledFormErrors = styled.p`
+  color: ${props => props.theme.colors.primary};
+  margin: 0;
+  line-height: 0;
+`

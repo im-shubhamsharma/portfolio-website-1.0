@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const StyledCover = styled.div`
   height: 100vh;
-  width: 120%;
+  width: 100%;
   overflow: hidden;
   background-image: linear-gradient(
     to right top,
@@ -169,8 +169,8 @@ export const StyledCover = styled.div`
 
 export const StyledSun = styled(motion.div)`
   position: absolute;
-  right: 12rem;
-  top: 8rem;
+  right: 9rem;
+  top: 6rem;
   opacity: 0.9;
 
   img {

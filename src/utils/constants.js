@@ -100,6 +100,7 @@ export const projects = [
     desc: "A cool animated mini website made with Framer Motion in React.",
     tech: "React  Framer Motion",
     type: ["react"],
+    featured: true,
     livelink: "https://pizzza-joint.netlify.app/",
     codelink: "https://github.com/im-shubhamsharma/pizza-point",
   },
@@ -176,5 +177,28 @@ export const projects = [
     type: ["htmlcss"],
     livelink: "https://im-shubhamsharma.github.io/Landing-Page-1/",
     codelink: "https://github.com/im-shubhamsharma/Landing-Page-1",
+  },
+];
+
+export const navItems = [
+  {
+    id: "01",
+    to: "home",
+    name: "Home",
+  },
+  {
+    id: "02",
+    to: "about",
+    name: "About",
+  },
+  {
+    id: "03",
+    to: "projects",
+    name: "Projects",
+  },
+  {
+    id: "04",
+    to: "contact",
+    name: "Contact",
   },
 ];

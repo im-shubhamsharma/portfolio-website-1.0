@@ -7,9 +7,10 @@ export const StyledSection = styled(motion.section)`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   @media only screen and (max-width: 768px) {
-    scroll-snap-align: none;
+    /* scroll-snap-align: none; */
     height: auto;
   }
 `;
@@ -43,9 +44,6 @@ export const StyledContainer = styled(motion.section)`
 
  export const StyledTitle = styled(motion.h1)`
    font-size: 2.2rem;
-   /* background: ${({ theme }) => theme.textGradient.background};
-   -webkit-text-fill-color: transparent;
-   -webkit-background-clip: text; */
 
    @media only screen and (max-width: 768px) {
      font-size: 1.8rem;
@@ -68,17 +66,22 @@ export const StyledContainer = styled(motion.section)`
    justify-content: center;
    align-items: center;
    max-width: max-content;
-   height: ${({size})=> size === "xl" ? "4.5rem" : ( size==="md" ? "3.5rem" : "2rem")};
+   height: ${({ size }) =>
+     size === "xl" ? "4.5rem" : size === "md" ? "3.5rem" : "2rem"};
    gap: 1rem;
    padding: 1rem;
    font-size: ${({ size }) => (size === "xl" ? "2.2rem" : "1rem" || "1rem")};
 
    border: 0;
-   background-color: rgba(255, 255, 255, 0.1);
+   /* background-color: rgba(255, 255, 255, 0.1); */
+   /* background-color: rgba(0, 0, 0, 0.1); */
+   background-color: ${({ theme }) =>
+     theme.name === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)"};
    backdrop-filter: blur(10px);
-   
+
    text-decoration: none;
-   color: ${({ theme, size }) => size === "xl" ? "#fff" : theme.colors.primary};
+   color: ${({ theme, size }) =>
+     size === "xl" ? "#fff" : theme.colors.primary};
    letter-spacing: 2px;
    cursor: pointer;
    transition: all 0.3s linear 0s;
@@ -97,9 +100,13 @@ export const StyledContainer = styled(motion.section)`
 
    @media only screen and (max-width: 768px) {
      width: 13rem;
-     height: 2.5rem;
-     font-size: ${({ size }) => (size === "xl" ? "1.4rem" : "1rem" || "1rem")};
+     height: ${({ size }) => (size === "sm" ? "auto" : "2.5rem")};
+     font-size: ${({ size }) =>
+       size === "xl"
+         ? "1.4rem"
+         : (size === "sm" ? "0.6rem" : "1rem") || "1rem"};
      gap: 0.5rem;
+     padding: ${({ size }) => (size === "sm" ? "2px" : "1rem")};
 
      .img {
        width: 2rem;

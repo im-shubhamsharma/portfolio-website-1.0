@@ -5,6 +5,8 @@ import {
   StyledInput,
   StyledTextArea,
   StyledFormErrors,
+  ContactContainer,
+  FooterContainer,
 } from "./styles/Contact.styled";
 
 import {
@@ -14,6 +16,7 @@ import {
   SubTitle,
   StyledButton,
 } from "./styles/Mixin";
+import Footer from "./Footer";
 
 const Contact = ({ showModal, setShowModal }) => {
   const [formData, setFormData] = useState({
@@ -40,10 +43,10 @@ const Contact = ({ showModal, setShowModal }) => {
       [name]: value,
     }));
 
-    setFormErrors(error => ({
+    setFormErrors((error) => ({
       ...error,
-      [name] : ""
-    }))
+      [name]: "",
+    }));
   };
   //--------------------------
   // function to validate our contact message data
@@ -58,8 +61,7 @@ const Contact = ({ showModal, setShowModal }) => {
           [key]: `${key} is required!`,
         }));
         flag = false;
-      } 
-      else {
+      } else {
         setFormErrors((error) => ({
           ...error,
           [key]: "",
@@ -105,61 +107,67 @@ const Contact = ({ showModal, setShowModal }) => {
     console.log("modal succesfully closed");
   };
   //----------------------
-  console.log(formErrors);
+
   //----------------------
 
   return (
-    <StyledSection>
+    <StyledSection id="contact">
       <StyledContainer>
-        <div>
-          <SubTitle>CONTACT</SubTitle>
-          <StyledTitle>Get In Touch</StyledTitle>
-        </div>
-        <StyledForm ref={form} onSubmit={sendEmail}>
-          <StyledInput
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-          {formErrors.name.length > 0 && (
-            <StyledFormErrors>{formErrors.name}</StyledFormErrors>
-          )}
+        <ContactContainer>
+          {" "}
+          <div>
+            <SubTitle>CONTACT</SubTitle>
+            <StyledTitle>Get In Touch</StyledTitle>
+          </div>
+          <StyledForm ref={form} onSubmit={sendEmail}>
+            <StyledInput
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {formErrors.name.length > 0 && (
+              <StyledFormErrors>{formErrors.name}</StyledFormErrors>
+            )}
 
-          <StyledInput
-            type="email"
-            name="email"
-            placeholder="E-mail"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          {formErrors.email.length > 0 && (
-            <StyledFormErrors>{formErrors.email}</StyledFormErrors>
-          )}
-          <StyledInput
-            type="text"
-            name="subject"
-            placeholder="Subject"
-            value={formData.subject}
-            onChange={handleChange}
-          />
-          <StyledTextArea
-            name="message"
-            placeholder="Message"
-            value={formData.message}
-            onChange={handleChange}
-            rows="5"
-          ></StyledTextArea>
-          {formErrors.message.length > 0 && (
-            <StyledFormErrors>{formErrors.message}</StyledFormErrors>
-          )}
+            <StyledInput
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              value={formData.email}
+              onChange={handleChange}
+            />
+            {formErrors.email.length > 0 && (
+              <StyledFormErrors>{formErrors.email}</StyledFormErrors>
+            )}
+            <StyledInput
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+            />
+            <StyledTextArea
+              name="message"
+              placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="5"
+            ></StyledTextArea>
+            {formErrors.message.length > 0 && (
+              <StyledFormErrors>{formErrors.message}</StyledFormErrors>
+            )}
 
-          <StyledButton size={"md"} type="submit">
-            SEND <ion-icon name="send-outline"></ion-icon>
-          </StyledButton>
-        </StyledForm>
+            <StyledButton size={"md"} type="submit">
+              SEND <ion-icon name="send-outline"></ion-icon>
+            </StyledButton>
+          </StyledForm>
+        </ContactContainer>
       </StyledContainer>
+      <FooterContainer>
+        <Footer />
+      </FooterContainer>
     </StyledSection>
   );
 };

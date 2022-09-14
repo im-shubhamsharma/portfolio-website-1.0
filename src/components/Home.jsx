@@ -14,7 +14,7 @@ import { StyledButton } from "./styles/Mixin";
 import Clouds from "./Clouds";
 import Header from "./Header";
 
-import { motion } from "framer-motion";
+import { motion, useAnimationControls, useInView } from "framer-motion";
 
 const containerVariants = {
   hidden: {
@@ -33,9 +33,15 @@ const containerVariants = {
   },
 };
 
-function Home(props) {
+
+function Home({theme, setTheme}) {
+  const homeRef = useRef();
+  const homeIsInView = useInView(homeRef);
+  const controls = useAnimationControls();
+
   return (
-    <>
+    <div id="home">
+      <Header homeRef={homeRef} theme={theme} setTheme={setTheme}/>
       <Clouds />
       <Container>
         <SubContainer
@@ -46,7 +52,7 @@ function Home(props) {
           <Greetings>Hi, I'm</Greetings>
           <StyledName>Shubham Sharma !</StyledName>
 
-          <DynamicTextContainer>
+          <DynamicTextContainer ref={homeRef}>
             I'm a&nbsp;
             <StyledSpan>
               <Typewriter
@@ -88,8 +94,7 @@ function Home(props) {
           ></motion.i>
         </SubContainer>
       </Container>
-      <Header />
-    </>
+    </div>
   );
 }
 

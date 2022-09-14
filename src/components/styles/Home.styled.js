@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
   position: absolute;
@@ -12,9 +12,10 @@ export const Container = styled(motion.div)`
   overflow: none;
   z-index: 1;
   scroll-snap-align: start;
+  color: #fff;
 
   @media only screen and (max-width: 500px) {
-    scroll-snap-align: none;
+    /* scroll-snap-align: none; */
     width: 100%;
   }
 `;
@@ -26,7 +27,7 @@ const fadeIn = keyframes`
     100%{
       opacity: 1;
     }
-`
+`;
 
 export const SubContainer = styled(motion.div)`
   width: 60%;
@@ -51,23 +52,24 @@ export const SubContainer = styled(motion.div)`
     padding: 2rem 0 2rem 2rem;
     font-size: 2.4rem;
 
-    .arrow{
-      bottom: 10vh;
+    .arrow {
+      bottom: 2vh;
+      left: 45%;
     }
   }
 `;
 
 export const Greetings = styled.div`
-
-  
+  color: #fff;
 `;
 
 export const StyledName = styled.div`
   text-transform: uppercase;
- 
+  color: #fff;
 
   @media only screen and (max-width: 500px) {
     margin: 0.5rem 0;
+    font-size: 1.7rem;
   }
 `;
 
@@ -79,7 +81,7 @@ export const DynamicTextContainer = styled.div`
 
   @media only screen and (max-width: 500px) {
     text-transform: uppercase;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 `;
 
@@ -88,7 +90,6 @@ export const StyledSpan = styled.span`
   color: white;
   overflow: hidden;
 `;
-
 
 export const IconContainer = styled.div`
   display: flex;

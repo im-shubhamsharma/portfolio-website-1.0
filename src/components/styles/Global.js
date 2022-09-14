@@ -14,7 +14,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 
-  color: ${({ theme }) => theme.colors.textPrimary};
+  color: ${({ theme }) => theme.colors.text};
   font-family: 'Calibre','Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;
 }
 

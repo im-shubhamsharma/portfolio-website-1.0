@@ -1,56 +1,66 @@
 import React from "react";
+import reactlogo from "../assets/react.svg"
+import redux from "../assets/redux.svg"
+import mui from "../assets/material.svg"
+import js from "../assets/js.svg"
+import java from "../assets/java.svg"
+import html from "../assets/html.svg"
+import css from "../assets/css.svg"
+import sass from "../assets/sass.svg"
+import git from "../assets/git.svg"
+import github from "../assets/github.svg"
 
 
 export const skills = [
   {
     id: 1,
     name: "React",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/react.png?raw=true",
+    logo: `${reactlogo}`,
   },
   {
     id: 2,
     name: "Redux",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/redux.png?raw=true",
+    logo: `${redux}`,
   },
   {
     id: 3,
     name: "MUI",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/material.png?raw=true",
+    logo: `${mui}`,
   },
   {
     id: 4,
     name: "Javascript",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/java-script.png?raw=true",
+    logo: `${js}`,
   },
   {
     id: 5,
     name: "Java",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/java.png?raw=true",
+    logo: `${java}`,
   },
   {
     id: 6,
     name: "HTML",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/html.png?raw=true",
+    logo: `${html}`,
   },
   {
     id: 7,
     name: "CSS",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/css.png?raw=true",
+    logo: `${css}`,
   },
   {
     id: 8,
     name: "Sass",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/sass.png?raw=true",
+    logo: `${sass}`,
   },
   {
     id: 9,
     name: "Git",
-    logo: "https://raw.githubusercontent.com/im-shubhamsharma/im-shubhamsharma/40c6dd980c6887c8cde401d4be8e535e6c10ee4b/assets/git.svg",
+    logo: `${git}`,
   },
   {
     id: 10,
     name: "GitHub",
-    logo: "https://github.com/im-shubhamsharma/im-shubhamsharma/blob/main/assets/github.png?raw=true",
+    logo: `${github}`,
   },
 ];
 

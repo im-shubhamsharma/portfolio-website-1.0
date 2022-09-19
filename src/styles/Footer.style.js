@@ -41,6 +41,7 @@ export const TextContainer = styled(motion.h4)`
   #sign {
     font-family: "Qwitcher Grypen", cursive;
     font-size: 2.2rem;
+    font-weight: 700;
   }
 
   img {

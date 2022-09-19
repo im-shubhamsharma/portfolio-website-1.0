@@ -13,7 +13,7 @@ import {
   headerVariant,
   headerChildren,
 } from "../utils/animation";
-import Cover from "./Cover";
+import Resume from "../assets/Resume.pdf";
 //------------------------------------
 
 //------------------------------------
@@ -56,7 +56,6 @@ const Header = ({ theme, themeToggler, homeView }) => {
     <StyledHeader variants={headerVariant} animate={controls}>
       <SubTitle variants={headerChildren}> SS </SubTitle>
       <StyledNav>
-      
         {navItemsElem}
 
         <motion.div variants={headerChildren}>
@@ -78,7 +77,11 @@ const Header = ({ theme, themeToggler, homeView }) => {
           )}
         </motion.div>
 
-        <ResumeButton variants={headerChildren}>Resume</ResumeButton>
+        <ResumeButton variants={headerChildren}>
+          <a href={Resume} download="Shubham_Resume" style={{ color: "#fff" }}>
+            Resume
+          </a>
+        </ResumeButton>
         <i
           variants={headerChildren}
           onClick={toggleMenu}

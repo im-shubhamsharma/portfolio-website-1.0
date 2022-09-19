@@ -30,10 +30,8 @@ export const LeftContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   gap: 1.2rem;
-  font-size: 1.5rem;
-  /* border: 1px solid ${({ theme }) => theme.primaryColor}; */
+  font-size: 1.7rem;
   padding: 2rem;
-  border-radius: 10px;
 
   .fa-icons {
     color: ${(props) => props.theme.textColor};

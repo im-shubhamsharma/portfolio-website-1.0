@@ -87,6 +87,7 @@ export const StyledNavItem = styled(motion.li)`
   span {
     color: ${(props) => props.theme.primaryColor};
     font-size: 0.9rem;
+    font-weight: 600;
   }
 `;
 

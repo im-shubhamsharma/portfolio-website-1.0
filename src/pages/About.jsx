@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 import { FadeIn } from "../utils/animation";
 
 //--------------Icons for skills section-----------
-import reactLogo from "../assets/react.svg";
+import reactlogo from "../assets/react.svg";
 //-----------------------------------------------
 
 // const cardVariants = {

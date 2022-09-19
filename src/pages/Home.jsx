@@ -4,6 +4,7 @@ import { Button} from "../styles/Mixin";
 import { HomeContainer, IconContainer } from "../styles/Home.style";
 import { motion, useInView } from "framer-motion";
 import Typewriter from "typewriter-effect";
+import Resume from "../assets/Resume.pdf"
 //------------------------------------------
 
 const Home = ({ homeRef }) => {
@@ -48,7 +49,11 @@ const Home = ({ homeRef }) => {
           </a>
         </IconContainer>
 
-        <Button size={"xl"}>Resume</Button>
+        <Button size={"xl"}>
+          <a href={Resume} download="Shubham_Resume" style={{color: "#fff"}}>
+            Resume
+          </a>
+        </Button>
 
         <motion.i
           ref={homeRef}

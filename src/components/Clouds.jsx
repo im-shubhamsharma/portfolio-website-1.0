@@ -1,61 +1,85 @@
 import React from "react";
-import { StyledCover, StyledSun } from "./styles/Clouds.styled";
-import sun from "../assets/sun.png";
+import { Cloud, CloudsContainer } from "../styles/Clouds.style";
+//----------------------------------------------------------
+
+const cloudContainerVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+
+    transition: {
+      staggerChildren: 2,
+    },
+  },
+};
+
+const smallCloud = {
+  hidden: {
+    scale: 0.3,
+  },
+  visible: {
+    x: ["-20vw", "110vw"],
+
+    transition: {
+      duration: 15,
+      ease: "linear",
+      repeat: "Infinity",
+      repeatType: "loop",
+    },
+  },
+};
+
+const mediumCloud = {
+  hidden: {
+    scale: 0.45,
+  },
+  visible: {
+    x: ["-30vw", "110vw"],
+
+    transition: {
+      duration: 19,
+      ease: "linear",
+      repeat: "Infinity",
+      repeatType: "loop",
+    },
+  },
+};
+
+const largeCloud = {
+  hidden: {
+    scale: 0.6,
+  },
+  visible: {
+    x: ["-40vw", "110vw"],
+
+    transition: {
+      duration: 25,
+      ease: "linear",
+      repeat: "Infinity",
+    },
+  },
+};
+
+//----------------------------------------------------------
 
 function Clouds(props) {
   return (
-    <StyledCover>
-      <div id="background-wrap">
-        <StyledSun
-          initial={{ rotate: -360 }}
-          animate={{ rotate: 360 }}
-          transition={{
-            repeat: "Infinity",
-            repeatType: "loop",
-            type: "tween",
-            duration: 50,
-          }}
-        >
-          <img src={sun} />
-        </StyledSun>
-
-        <div className="x1">
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x5" style={{ position: "relative", left: "-30rem" }}>
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x2" style={{ position: "relative", left: "-20rem" }}>
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x3">
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x4">
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x5">
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x2" style={{ position: "relative", left: "-40rem" }}>
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x1" style={{ position: "relative", left: "-20rem" }}>
-          <div className="cloud"></div>
-        </div>
-
-        <div className="x3" style={{ position: "relative", left: "-20rem" }}>
-          <div className="cloud"></div>
-        </div>
-      </div>
-    </StyledCover>
+    <CloudsContainer
+      key={"0012"}
+      variants={cloudContainerVariant}
+      initial="hidden"
+      animate="visible"
+    >
+      <Cloud size={"sm"} variants={smallCloud}></Cloud>
+      <Cloud size={"lg"} variants={largeCloud}></Cloud>
+      <Cloud size={"md"} variants={mediumCloud}></Cloud>
+      <Cloud size={"sm"} variants={smallCloud}></Cloud>
+      <Cloud size={"lg"} variants={largeCloud}></Cloud>
+      <Cloud size={"md"} variants={mediumCloud}></Cloud>
+      <Cloud size={"sm"} variants={smallCloud}></Cloud>
+    </CloudsContainer>
   );
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export const skills = [
   {
     id: 1,
@@ -53,7 +54,7 @@ export const skills = [
   },
 ];
 
-export const projects = [
+export const projectsData = [
   {
     id: 1,
     name: "PortFolio",
@@ -110,7 +111,7 @@ export const projects = [
     desc: "A react application where we can store and manage contacts.",
     tech: "React  Javascript  Sass",
     type: ["react"],
-    featured: true,
+    featured: false,
     livelink: "https://im-shubhamsharma.github.io/contact-manager-react-app/",
     codelink: "https://github.com/im-shubhamsharma/contact-manager-react-app",
   },
@@ -147,7 +148,7 @@ export const projects = [
     name: "University Website",
     desc: "University Website using HTML & CSS",
     tech: "HTML  CSS",
-    type: ["htmlcss"],
+    type: ["html", "css"],
     livelink: "https://im-shubhamsharma.github.io/University-website/",
     codelink: "https://github.com/im-shubhamsharma/University-website",
   },
@@ -156,7 +157,7 @@ export const projects = [
     name: "Ecommerce Website",
     desc: "Ecommerce Website using HTML & CSS",
     tech: "HTML  CSS",
-    type: ["htmlcss"],
+    type: ["html", "css"],
     livelink: "https://im-shubhamsharma.github.io/Ecommerce-Website/",
     codelink: "https://github.com/im-shubhamsharma/Ecommerce-Website",
   },
@@ -165,7 +166,7 @@ export const projects = [
     name: "Good Vibes Form",
     desc: "Simple html css form template",
     tech: "HTML  CSS",
-    type: ["htmlcss"],
+    type: ["html", "css"],
     livelink: "https://im-shubhamsharma.github.io/good-vibes-form/",
     codelink: "https://github.com/im-shubhamsharma/good-vibes-form",
   },
@@ -174,7 +175,7 @@ export const projects = [
     name: "Landing Page",
     desc: " Landing page using HTML & CSS",
     tech: "HTML  CSS",
-    type: ["htmlcss"],
+    type: ["html", "css"],
     livelink: "https://im-shubhamsharma.github.io/Landing-Page-1/",
     codelink: "https://github.com/im-shubhamsharma/Landing-Page-1",
   },
@@ -202,3 +203,36 @@ export const navItems = [
     name: "Contact",
   },
 ];
+
+export const projectsFilters = [
+  {
+    id:"001",
+    name: "Featured",
+    value: "featured",
+    focus: true,
+  },
+  {
+    id:"002",
+    name: "REACT",
+    value: "react",
+    focus: false,
+  },
+  {
+    id:"003",
+    name: "MATERIAL UI",
+    value: "material",
+    focus: false,
+  },
+  {
+    id:"004",
+    name: "JAVASCRIPT",
+    value: "javascript",
+    focus: false,
+  },
+  {
+    id:"005",
+    name: "HTML + CSS",
+    value: "html",
+    focus: false,
+  },
+]

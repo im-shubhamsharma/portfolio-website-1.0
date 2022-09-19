@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { StyledSpring, StyledSpringSection } from "./styles/SpringCover.styled";
+import { StyledSpring, StyledSpringSection } from "../styles/SpringCover.style"
 
 export default function SpringCover() {
   const ref = useRef(null);

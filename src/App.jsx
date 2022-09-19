@@ -1,50 +1,58 @@
-import {useState} from 'react';
-import Home from "./components/Home";
-import About from "./components/About";
-import GlobalStyles from "./components/styles/Global";
+import React, { useState, useRef, useEffect } from "react";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
+import Cover from "./components/Cover";
+import Cover2 from "./components/Cover2";
+import GlobalStyles from "./styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
-import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import Modal from  "./components/Modal"
-import SpringCover from "./components/SpringCover"
-import { lightTheme, darkTheme } from './components/styles/Theme';
+import { LightTheme, DarkTheme } from "./styles/Theme";
+import { useDarkMode } from "./hooks/useDarkMode";
+import Modal from "./components/Modal";
+import { useInView } from "framer-motion";
 
-// const theme = {
-//   colors: {
-//     background: "#222426",
-//     primary: "#f51720",
-//     text: "rgb(255, 255, 255)",
-//   },
- 
-// };
+//-------------------------------------------------
+import SpringCover from "./components/SpringCover";
 
-function App() {
+//----------------------------------------------------
+
+const App = () => {
   const [showModal, setShowModal] = useState(false);
-  const [theme, setTheme] = useState(false); //false dark and true light
+  const [theme, themeToggler] = useDarkMode(); 
+  const [primaryColor, setPrimaryColor] = useState("#f51720");
+  const themeMode =
+    theme === "light" ? LightTheme(primaryColor) : DarkTheme(primaryColor);
+  //-------------------------------------------
+  //-------------------------------------------
 
-  console.log(theme);
+  const homeRef = useRef(null);
+  const homeView = useInView(homeRef);
+  //-------------------------------------------
 
   return (
-    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+    <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
         <Modal showModal={showModal} setShowModal={setShowModal} />
-        {/* <Header/> */}
-        <Home theme={theme} setTheme={setTheme} />
-        <About />
-        <Projects />
-        <Contact showModal={showModal} setShowModal={setShowModal} />
-        <SpringCover />
+        <Home homeRef={homeRef} />
+        <div style={{ position: "relative" }}>
+          <Header
+            homeView={homeView}
+            theme={theme}
+            themeToggler={themeToggler}
+          />
+          <About />
+          <Projects />
+          <Contact setShowModal={setShowModal} />
+          {!homeView && <Cover />}
+          {!homeView && <Cover2 setPrimaryColor={setPrimaryColor} />}
+          <SpringCover />
+        </div>
       </>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
-
-/*
-#f51720 - red tint
-#2ff3e0 - green tint
-#c7f954 - another green tint
-rgb(255, 115, 206) - pink
-*/

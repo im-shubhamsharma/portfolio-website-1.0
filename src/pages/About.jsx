@@ -28,7 +28,6 @@ import reactlogo from "../assets/react.svg";
 //   },
 // };
 
-
 const About = () => {
   //------------------------------------
 
@@ -44,7 +43,6 @@ const About = () => {
   ));
 
   return (
-    
     <Container
       id="about"
       initial="offscreen"
@@ -59,19 +57,11 @@ const About = () => {
         </div>
         <div>
           <Para>
-            <motion.span>
-              Well hello there! My name is Shubham Sharma, I am a self-taught
-              passionate Web developer from India.
-            </motion.span>
-            <br />
-            <motion.span>
-              I am currently working on improving my React skills by building
-              various projects to enhance my abilities.
-            </motion.span>
-            <motion.span>
-              I am currently also learning Data Structures & Algorithms and
-              enjoys solving DSA problems.
-            </motion.span>
+            Well hello there! <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25"></img> <br/> My name is Shubham Sharma, I am a self-taught
+            frontend web developer from India. I love to create beautiful and
+            performant products with delightful user experiences. I am currently
+            working on improving my skills by building various projects to
+            enhance my abilities.
           </Para>
         </div>
       </StyledAboutSection>

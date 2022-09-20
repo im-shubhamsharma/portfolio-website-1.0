@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 export const StyledCover = styled(motion.div)`
   display: flex;
@@ -15,11 +15,14 @@ export const StyledCover = styled(motion.div)`
   @media (max-width: 1080px) {
     right: 0rem;
   }
+  
   @media (max-width: 768px) {
-    display: none;
-  }
-  @media (max-width: 480px) {
-    display: none;
+    width: 100%;
+    height: 5vh;
+    position: static;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
   }
 `;
 
@@ -32,11 +35,10 @@ export const RightContainer = styled(motion.div)`
   align-items: center;
   gap: 1.2rem;
   font-size: 2.5rem;
-  /* border: 1px solid ${({ theme }) => theme.primaryColor}; */
   padding: 2rem;
   border-radius: 10px;
 
-  p{
+  p {
     transform: rotate(90deg);
     font-size: 1rem;
   }
@@ -48,6 +50,18 @@ export const RightContainer = styled(motion.div)`
     height: 8rem;
     margin: 0 auto;
     background-color: ${({ theme }) => theme.primaryColor};
+  }
+
+  @media (max-width: 768px) {
+    border: 2px solid ${({ theme }) => theme.primaryColor};
+    width: 100%;
+    flex-direction: row;
+    padding: 1rem;
+    border-radius: 20px 20px 0 0;
+
+    &:after {
+      display: none;
+    }
   }
 `;
 
@@ -62,8 +76,7 @@ export const ColorOptions = styled(motion.div)`
   color: transparent;
   cursor: pointer;
 
-  &:hover{
-     scale:1.1;
+  &:hover {
+    scale: 1.1;
   }
 `;
-

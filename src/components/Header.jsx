@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   StyledHeader,
   StyledNav,
@@ -9,10 +9,7 @@ import {
 import { navItems } from "../utils/constants";
 import { Link } from "react-scroll";
 import { motion, useAnimationControls } from "framer-motion";
-import {
-  headerVariant,
-  headerChildren,
-} from "../utils/animation";
+import { headerVariant, headerChildren } from "../utils/animation";
 import Resume from "../assets/Resume.pdf";
 //------------------------------------
 
@@ -20,9 +17,15 @@ import Resume from "../assets/Resume.pdf";
 
 const Header = ({ theme, themeToggler, homeView }) => {
   //----------------------------------
-  const [menu, setMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  console.log(showMenu);
 
-  const toggleMenu = () => setMenu((prevState) => !prevState);
+  const hamRef = useRef();
+
+  const toggleNavbar = () => {
+    hamRef.current.classList.toggle("active");
+    setShowMenu((prevState) => !prevState);
+  };
   //-----------------------------------
 
   const controls = useAnimationControls();
@@ -45,7 +48,7 @@ const Header = ({ theme, themeToggler, homeView }) => {
         smooth={true}
         offset={-50}
         duration={500}
-        onClick={toggleMenu}
+        onClick={showMenu && toggleNavbar}
       >
         <span>{item.id}.</span>&nbsp;{item.name}
       </Link>
@@ -55,14 +58,14 @@ const Header = ({ theme, themeToggler, homeView }) => {
   return (
     <StyledHeader variants={headerVariant} animate={controls}>
       <SubTitle variants={headerChildren}> SS </SubTitle>
-      <StyledNav>
+      <StyledNav showMenu={showMenu}>
         {navItemsElem}
 
         <motion.div variants={headerChildren}>
           {theme === "dark" && (
             <ion-icon
               onClick={() => {
-                themeToggler(), toggleMenu();
+                themeToggler(), showMenu && toggleNavbar();
               }}
               name="sunny-outline"
             ></ion-icon>
@@ -70,29 +73,28 @@ const Header = ({ theme, themeToggler, homeView }) => {
           {theme === "light" && (
             <ion-icon
               onClick={() => {
-                themeToggler(), toggleMenu();
+                themeToggler(), showMenu && toggleNavbar();
               }}
               name="moon-outline"
             ></ion-icon>
           )}
         </motion.div>
 
-        <ResumeButton variants={headerChildren}>
+        <ResumeButton
+          variants={headerChildren}
+          onClick={() => showMenu && toggleNavbar()}
+        >
           <a href={Resume} download="Shubham_Resume" style={{ color: "#fff" }}>
             Resume
           </a>
         </ResumeButton>
-        <i
-          variants={headerChildren}
-          onClick={toggleMenu}
-          className="fa-solid fa-xmark hide-menu"
-        ></i>
       </StyledNav>
-      <i
-        variants={headerChildren}
-        onClick={toggleMenu}
-        className="fa-solid fa-bars show-menu"
-      ></i>
+
+      <div ref={hamRef} className="hamburger" onClick={toggleNavbar}>
+        <span className="line1"></span>
+        <span className="line2"></span>
+        <span className="line3"></span>
+      </div>
     </StyledHeader>
   );
 };

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {motion} from "framer-motion"
+import styled, { css, keyframes } from "styled-components";
+import { motion } from "framer-motion";
 
 export const StyledHeader = styled(motion.div)`
   position: fixed;
@@ -12,23 +12,51 @@ export const StyledHeader = styled(motion.div)`
   align-items: center;
   text-align: center;
   padding: 1rem 5rem;
-  background-color: ${props => props.theme.backgroundColor};
-  z-index:10;
+  background-color: ${(props) => props.theme.backgroundColor};
+  z-index: 10;
 
-  .show-menu {
-    color: ${(props) => props.theme.primaryColor};
-    font-size: 2rem;
+  .hamburger {
+    width: 2rem;
+    height: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    overflow: hidden;
     display: none;
+
+    span {
+      width: 100%;
+      height: 3px;
+      background-color: ${(props) => props.theme.primaryColor};
+      transform-origin: left;
+      transition: all 0.8s ease;
+    }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 768px) {
     width: 100%;
     height: 7vh;
-    padding: 0 1rem;
+    padding: 0 2rem;
 
-    .show-menu {
-      display: ${({ menu, homeIsInView }) =>
-        homeIsInView ? "none" : menu ? "none" : "block"};
+    .hamburger {
+      display: flex;
+    }
+
+    .active {
+      span {
+        &:first-child {
+          /* background-color: white; */
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          /* background-color: white; */
+          transform: rotate(-45deg);
+        }
+      }
     }
   }
 `;
@@ -42,41 +70,43 @@ export const StyledNav = styled(motion.nav)`
   justify-content: flex-end;
   align-items: center;
   gap: 2rem;
-
-  .hide-menu {
-    color: ${(props) => props.theme.primaryColor};
-    font-size: 2.2rem;
-    position: absolute;
-    top: 10px;
-    right: 30px;
-    display: none;
-  }
+  transition: 1s linear;
 
   ion-icon {
     color: ${(props) => props.theme.textColor};
     font-size: 1.5rem;
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 768px) {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    height: 100vh;
+    height: 93vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: ${(props) => props.theme.backgroundColor};
+    /* opacity: 0.9; */
     z-index: 200;
     font-size: 1.8rem;
     border: 2px solid ${(props) => props.theme.primaryColor};
-    display: ${({ menu }) => (menu ? "flex" : "none")};
+    margin-top: 7vh;
+    transition: 0.8s linear;
+    transform: ${({ showMenu }) =>
+      showMenu ? `translateX(0vw)` : `translateX(100vw)`};
 
-    .hide-menu {
-      display: block;
+    @media (max-width: 1080px) {
+    }
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 480px) {
+      ion-icon {
+        font-size: 2.2rem;
+      }
     }
   }
 `;
@@ -89,13 +119,20 @@ export const StyledNavItem = styled(motion.li)`
     font-size: 0.9rem;
     font-weight: 600;
   }
+
+  @media (max-width: 1080px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 export const SubTitle = styled(motion.h3)`
-  display: ${({ homeIsInView }) => (homeIsInView ? "none" : "block")};
-
   @media only screen and (max-width: 500px) {
-    padding-left: 1rem;
     font-size: 2rem;
   }
 `;

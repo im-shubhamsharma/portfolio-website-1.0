@@ -13,9 +13,10 @@ export const StyledCover = styled(motion.div)`
   z-index: 0;
 
   @media (max-width: 1080px) {
+    right: 0rem;
   }
   @media (max-width: 768px) {
-    margin-bottom: 2rem;
+    display: none;
   }
   @media (max-width: 480px) {
     display: none;
